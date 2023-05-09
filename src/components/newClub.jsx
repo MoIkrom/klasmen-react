@@ -9,6 +9,7 @@ import swal from "sweetalert";
 import Spinner from "react-bootstrap/Spinner";
 
 function BasicExample() {
+  const host = "https://node-aptavis.vercel.app";
   const [klub, setKlub] = useState("");
   const [kota, setKota] = useState("");
   const [allKlub, setAllKlub] = useState([]);
@@ -25,7 +26,7 @@ function BasicExample() {
     e.preventDefault();
     setIsLoading2(true);
     axios
-      .post(`http://localhost:3001/api/v1/club`, {
+      .post(`${host}/api/v1/club`, {
         klub,
         kota,
       })
@@ -44,7 +45,7 @@ function BasicExample() {
 
   const getAllClub = () => {
     axios
-      .get(`https://node-aptavis.vercel.app/api/v1/club`)
+      .get(`${host}/api/v1/club`)
       .then((res) => {
         setAllKlub(res.data.data);
       })
